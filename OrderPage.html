@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Times New Roman', serif;
+      background-image: url("background.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 600px;
+      background-color: hsla(14, 100%, 90%, 0.959);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(214, 51, 108, 0.2);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #221514;
+      margin-bottom: 20px;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .menu-item input[type="number"] {
+      width: 45px;
+      height: 45px;
+      padding: 5px;
+      font-size: 16px;
+      text-align: center;
+      border: 1px solid #d6336c;
+      border-radius: 5px;
+    }
+
+    .menu-item button {
+      flex-grow: 1;
+      padding: 50px;
+      font-size: 18px;
+      font-weight: bold;
+      font-family: 'Serif';
+      background-color: #803232;
+      color: rgb(223, 164, 77);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .menu-item button:hover {
+      background-color: #610d0d;
+    }
+
+    #orderList {
+      background-color: #ffe0eb;
+      padding: 8px 12px;
+      margin-bottom: 5px;
+      border-left: 5px solid #7a0b43;
+      position: relative;
+      font-size: 18px;
+      font-family: 'Optima';
+    }
+
+    #orderList li {
+      list-style: none;
+      padding: 5px 0;
+    }
+
+    #orderList li .remove-btn{
+      float: right;
+      color: white;
+      background-color: rgb(221, 100, 136);
+      border: none;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      line-height: 18px;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    #orderList li .remove-btn:hover{
+      background-color: #c93030;    
+    }
+
+    #totalPrice {
+      font-size: 20px;
+      font-weight: bold;
+      color: #5e1f1f;
+      margin-top: 10px;
+    }
+
+    .button {
+      background-color: #803232;
+      color: rgb(223, 164, 77);
+      border: none;
+      border-radius: 8px;
+      font-family: Times;
+      font-size: 18px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+
+    .page-layout {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 0 0 40px 0;
+    }
+
+    .left-section {
+      flex: 1 1 40%;
+    }
+
+    .right-section {
+      flex: 1 1 40%;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="page-layout">
+  <div class="left-section">
+
+    <div class="container">
+      <h1> 🍝 MAIN COURSE 🍝</h1>
+      <div id="menu">
+        <div class="menu-item">
+          <input type="number" id="qtyAO" value="1" min="1">
+          <br><img src="aglio.jpg" style="height: 25%; width: 25%; border-radius: 15px;">
+          <button onclick="orderDish('Shrimp Aglio Olio', 'qtyAO', 26.80)">
+            ⟡ Shrimp Aglio Olio ⟡ <br><small>RM26.80</small>
+          </button>
+        </div>
+
+        <div class="menu-item">
+          <input type="number" id="qtyFC" value="1" min="1">
+          <br><img src="fish.jpg" style="height: 25%; width: 25%; border-radius: 15px;">
+          <button onclick="orderDish('Fish n Chips', 'qtyFC', 21.50)">
+            ⟡ Fish n Chips ⟡ <br><small>RM21.50</small>
+          </button>
+        </div>
+
+        <div class="menu-item">
+          <input type="number" id="qtyCLB" value="1" min="1">
+          <br><img src="borgir.jpg" style="height: 25%; width: 25%; border-radius: 15px;">
+          <button onclick="orderDish('Cheese Leleh Burger', 'qtyCLB', 21.50)">
+            ⟡ Cheese Leleh Burger ⟡ <br><small>RM21.50</small>
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <h1>🧁 DESSERTS 🧁</h1>
+      <div id="menu">
+        <div class="menu-item">
+          <input type="number" id="qtySC" value="1" min="1">
+          <br><img src="StrawberryCheesecake.jpg" style="height: 25%; width: 25%; border-radius: 15px;">
+          <button onclick="orderDish('Strawberry Cheesecake', 'qtySC', 20.40)">
+            ⟡ Strawberry Cheesecake ⟡ <br><small>RM20.40</small>
+          </button>
+        </div>
+
+        <div class="menu-item">
+          <input type="number" id="qtyBC" value="1" min="1">
+          <br><img src="batik.jpg" style="height: 25%; width: 25%; border-radius: 15px;">
+          <button onclick="orderDish('Indulgence Batik Cake', 'qtyBC', 10.00)">
+            ⟡ Indulgence Batik Cake ⟡ <br><small>RM10.00</small>
+          </button>
+        </div>
+
+        <div class="menu-item">
+          <input type="number" id="qtyCLC" value="1" min="1">
+          <br><img src="choclava.jpg" style="height: 25%; width: 25%; border-radius: 15px;">
+          <button onclick="orderDish('Chocolate Lava Cake', 'qtyCLC', 12.50)">
+            ⟡ Chocolate Lava Cake ⟡ <br><small>RM12.50</small>
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <h1> 🍹 BEVERAGES 🍹</h1>
+      <div id="menu">
+        <div class="menu-item">
+          <input type="number" id="qtyPL" value="1" min="1">
+          <br><img src="pink.jpg" style="height: 25%; width: 25%; border-radius: 15px;">
+          <button onclick="orderDish('Pink Lemonade', 'qtyPL', 12.30)">
+            ⟡ Pink Lemonade ⟡ <br><small>RM12.30</small>
+          </button>
+        </div>
+
+        <div class="menu-item">
+          <input type="number" id="qtyGT" value="1" min="1">
+          <br><img src="green.jpg" style="height: 25%; width: 25%; border-radius: 15px;">     
+          <button onclick="orderDish('Iced Green Tea', 'qtyGT', 10.50)">
+            ⟡ Iced Green Tea ⟡ <br><small>RM10.50</small>
+          </button>
+        </div>
+
+        <div class="menu-item">
+          <input type="number" id="qtycap" value="1" min="1">
+          <br><img src="coffee.jpg" style="height: 25%; width: 25%; border-radius: 15px;">      
+          <button onclick="orderDish('Iced Cappuccino', 'qtycap', 12.70)">
+            ⟡ Iced Cappuccino ⟡ <br><small>RM12.70</small>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right-section">
+
+    <div class="container">
+      <h1>🍴 YOUR ORDERS 🍴</h1>
+      <ul id="orderList"></ul>
+      <div id="totalPrice">Total: RM0.00</div>
+    </div>
+
+
+    <div class="container" style="font-size: 18px;">
+      <form name="myform" method="post" action="ReceiptPage.html" onsubmit="return validateform()">
+        <h3>⟡ This is Your Receipt ⟡</h3>
+        <input class="button" type="submit" value="  RECEIPT  ">
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  let totalPrice = 0;
+
+  function orderDish(dishName, qtyId, price) {
+    const quantityInput = document.getElementById(qtyId);
+    const quantity = parseInt(quantityInput.value);
+
+    if (quantity <= 0 || isNaN(quantity)) {
+      alert("Please enter a valid quantity.");
+      return;
+    }
+
+    const ul = document.getElementById("orderList");
+    const li = document.createElement("li");
+
+    const itemTotal = (quantity * price).toFixed(2);
+
+    li.innerHTML = `
+      [Qtt: ${quantity}]  [ ${dishName} ]  [ RM${itemTotal} ]
+      <button class="remove-btn" onclick="removeOrder(this, ${itemTotal})">✖</button>
+    `;
+    li.dataset.price = itemTotal;
+
+    ul.appendChild(li);
+
+    totalPrice += parseFloat(itemTotal);
+    updateTotal();
+
+    quantityInput.value = "1";
+  }
+
+  function removeOrder(button, itemTotal) {
+    const li = button.parentElement;
+    totalPrice -= parseFloat(itemTotal);
+    updateTotal();
+    li.remove();
+  }
+
+  function updateTotal() {
+    document.getElementById("totalPrice").innerText = "Total: RM" + totalPrice.toFixed(2);
+  }
+
+
+  function validateform() {
+    const orderItems = document.querySelectorAll("#orderList li");
+    if (orderItems.length === 0) {
+      alert("Please select at least one item before proceeding.");
+      return false;
+    }
+    return true;
+  }
+</script>
+
+</body>
+</html>

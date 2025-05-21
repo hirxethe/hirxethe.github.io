@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Insyi's Recipe - Main Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Times New Roman', serif;
+      background-image: url("background2.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #ffd9d9ec;
+      border-radius: 15px;
+      padding: 35px;
+      box-shadow: 0 0 15px rgba(179, 31, 83, 0.2);
+    }
+
+    h1 {
+      color: #52231f;
+      margin-bottom: 14px;
+    }
+
+    h2, h3 {
+      color: #7e3a35;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      padding: 8px;
+      width: 80%;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .button {
+      background-color: rgb(97, 15, 15);
+      color: #c09622;
+      border-radius: 8px;
+      font-family: Times;
+      font-size: 18px;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+    
+  </style>
+
+  <script>
+    function validateform() {
+      var name = document.myform.name.value.trim();
+      var tableNum = document.myform.num.value.trim();
+
+      if (name == "" || name == null) {
+        alert("Name can't be blank");
+        return false;
+      } else if (tableNum == "" || tableNum == null) {
+        alert("Please enter your table number");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</head>
+
+<body>
+  <form name="myform" method="post" action="https://hirxethe.github.io/OrderPage.html" onsubmit="return validateform()">
+    <div class="container" style="font-size: 14px;">
+      <h1>⟡ WELCOME TO ⟡<br>⟡ INSYI'S CUISINE RESTAURANT ⟡</h1>
+      <hr color="black">
+      <h2>🤍 dine-in order 🤍</h2>
+      <hr color="#7a0b43">
+    </div>
+
+    <div class="container" style="font-size: 18px;">
+      <h3>Enter Name</h3>
+      <p><input type="text" name="name"></p>
+    </div>
+
+    <div class="container" style="font-size: 18px;">
+      <h3>Enter Table Number</h3>
+      <p><input type="number" name="num"></p>
+    </div>
+
+    <div class="container" style="font-size: 18px;">
+      <h3>⟡ Order Here ⟡</h3>
+      <input class="button" type="submit" value="  ORDER  ">
+    </div>
+  </form>
+</body>
+</html>
